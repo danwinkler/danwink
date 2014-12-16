@@ -302,9 +302,13 @@ function draw() {
 	g.rotate( rot );
 	g.drawImage( ship1, -15, -15 );
 	if( moving ) {
-		if( counter <= 5 ) {
+		if( counter <= 5 )
 			g.drawImage( shipm1, -15, -15 );
-		}
+		else if( counter <= 10 )
+			g.drawImage( shipm2, -15, -15 );
+		else
+			counter = 0;
+		counter++;
 	}
 
 	g.rotate( -rot );
