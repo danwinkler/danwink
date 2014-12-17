@@ -38,6 +38,8 @@ function start() {
 
 	camera.up = new THREE.Vector3( 0, 0, 1 );
 
+	var texture = THREE.ImageUtils.loadTexture( 'border64.png' );
+
 	for( var x = 0; x < cityWidth; x++ )
 	{
 		for( var y = 0; y < cityHeight; y++ )
@@ -46,7 +48,8 @@ function start() {
 				color: new THREE.Color( Math.random(), Math.random(), Math.random() ),
 				transparent: true,
 				opacity: .5,
-				side: THREE.DoubleSide
+				side: THREE.DoubleSide,
+				map: texture
 			});
 
 			var distFromCenter = (Math.pow( x-cityWidth/2, 2) + Math.pow( y-cityHeight/2, 2 ));
