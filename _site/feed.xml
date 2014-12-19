@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Daniel Winkler</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://danwink.com/</link>
+    <atom:link href="http://danwink.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 19 Dec 2014 16:04:36 -0600</pubDate>
+    <lastBuildDate>Fri, 19 Dec 2014 16:04:36 -0600</lastBuildDate>
+    <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>Flocking</title>
+        <description>&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;script src=&quot;flocking.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+    begin();
+});
+&lt;/script&gt;
+</description>
+        <pubDate>Fri, 19 Dec 2014 00:00:00 -0600</pubDate>
+        <link>http://danwink.com/projects/flocking/</link>
+        <guid isPermaLink="true">http://danwink.com/projects/flocking/</guid>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Dust</title>
+        <description>&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;script src=&quot;dust.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+    begin();
+});
+&lt;/script&gt;
+</description>
+        <pubDate>Fri, 19 Dec 2014 00:00:00 -0600</pubDate>
+        <link>http://danwink.com/projects/dust/</link>
+        <guid isPermaLink="true">http://danwink.com/projects/dust/</guid>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Cherry Blossom</title>
+        <description>&lt;img src=&quot;trunk1.png&quot; id=&quot;trunk&quot; style=&quot;display: none&quot; /&gt;
+&lt;img src=&quot;petal1.png&quot; id=&quot;petal&quot; style=&quot;display: none&quot; /&gt;
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;script src=&quot;cherry-blossom.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+    begin();
+    $(&quot;#canvas&quot;).click( newTree );
+});
+&lt;/script&gt;
+</description>
+        <pubDate>Fri, 19 Dec 2014 00:00:00 -0600</pubDate>
+        <link>http://danwink.com/projects/cherry-blossom/</link>
+        <guid isPermaLink="true">http://danwink.com/projects/cherry-blossom/</guid>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+  </channel>
+</rss>
