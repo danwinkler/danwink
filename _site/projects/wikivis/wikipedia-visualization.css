@@ -1,0 +1,29 @@
+body, html {
+    height:100%;
+    background-color: #000000;
+}
+
+#canvas {
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+.textbox {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    padding: 10px;
+    outline: 2px solid #333333;
+    z-index: 10;
+}
+
+.helpbox {
+    color: #FFFFFF;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    margin-bottom: 5px;
+}
+
+#pagename {
+    width: 100%;
+}

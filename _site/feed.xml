@@ -6,9 +6,37 @@
 </description>
     <link>http://danwink.com/</link>
     <atom:link href="http://danwink.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Dec 2014 20:08:17 -0600</pubDate>
-    <lastBuildDate>Fri, 19 Dec 2014 20:08:17 -0600</lastBuildDate>
+    <pubDate>Sat, 20 Dec 2014 14:25:12 -0600</pubDate>
+    <lastBuildDate>Sat, 20 Dec 2014 14:25:12 -0600</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>Wikipedia Visualization</title>
+        <description>&lt;div class=&quot;textbox&quot;&gt;
+    &lt;div class=&quot;helpbox&quot; style=&quot;display: none&quot;&gt;
+        Type the name of a Wikipedia article!
+    &lt;/div&gt;
+    &lt;form&gt;
+        &lt;input type=&quot;text&quot; name=&quot;pagename&quot; id=&quot;pagename&quot; /&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;script src=&quot;wikivis.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+    beginVis();
+});
+&lt;/script&gt;
+</description>
+        <pubDate>Sat, 20 Dec 2014 00:00:00 -0600</pubDate>
+        <link>http://danwink.com/projects/wikivis/</link>
+        <guid isPermaLink="true">http://danwink.com/projects/wikivis/</guid>
+        
+        
+        <category>projects</category>
+        
+      </item>
     
       <item>
         <title>Flocking</title>

@@ -1,0 +1,22 @@
+---
+layout: project
+title:  "Wikipedia Visualization"
+categories: projects
+---
+
+<div class="textbox">
+    <div class="helpbox" style="display: none">
+        Type the name of a Wikipedia article!
+    </div>
+    <form>
+        <input type="text" name="pagename" id="pagename" />
+    </form>
+</div>
+<canvas id="canvas"></canvas>
+
+<script src="wikivis.js"></script>
+<script>
+$(function() {
+    beginVis();
+});
+</script>
