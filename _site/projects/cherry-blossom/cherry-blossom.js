@@ -10,11 +10,15 @@ var time = 0;
 var windStart = 0;
 var windDest = 0;
 var windTime = 0;
+var maxPetalFade = 100;
 
 var trunkImg;
 var petalImg;
 
 var petals = [];
+
+var oldWindowWidth = window.innerWidth;
+var oldWindowHeight = window.innerHeight;
 
 function begin()
 {
@@ -23,7 +27,22 @@ function begin()
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    oldWindowWidth = window.innerWidth;
+    oldWindowHeight = window.innerHeight;
+
     g = canvas.getContext('2d');
+
+    window.addEventListener( 'resize', function() {
+        var dx = window.innerWidth - oldWindowWidth;
+        var dy = window.innerHeight - oldWindowHeight;
+        for( var i in petals ) {
+            var petal = petals[i];
+            petal.x += dx/2;
+            petal.y += dy;
+        }
+        oldWindowWidth = window.innerWidth;
+        oldWindowHeight = window.innerHeight;
+    }, false );
 
     start();
     setInterval( draw, 1000/30 );
@@ -182,12 +201,20 @@ var Petal = function( x, y )
     this.alive = true;
     this.dr = (Math.random() * .2) - .1;
     this.r = Math.random() * Math.PI * 2;
+    this.fadeout = maxPetalFade;
+
     this.update = function() {
-        this.x += wind*20;
-        this.x += Math.sin( time * .01 + this.r );
-        this.y += 1;
-        this.r += this.dr;
-        if( this.y > canvas.height )
+        if( this.y <= canvas.height-10 ) {
+            this.x += wind*20;
+            this.x += Math.sin( time * .01 + this.r );
+            this.y += 1;
+            this.r += this.dr;
+        }
+        else if( this.fadeout > 0 )
+        {
+            this.fadeout--;
+        }
+        else
         {
             this.alive = false;
         }
@@ -196,7 +223,9 @@ var Petal = function( x, y )
         g.save();
         g.translate( this.x, this.y );
         g.rotate( this.r );
+        g.globalAlpha = this.fadeout / maxPetalFade;
         g.drawImage( petalImg, -5, -5, 10, 10 );
+        g.globalAlpha = 1;
         g.restore();
     };
 }
