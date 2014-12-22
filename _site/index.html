@@ -11,6 +11,8 @@
         $(".contentframe .demos").dpage( $(".buttons .demos") );
         $(".contentframe .about").dpage( $(".buttons .about") );
         
+        mouseOverShow( "liquid3d" );
+        
         mouseOverShow( "wikipedia-visualization" );
         
         mouseOverShow( "spaceattack" );
@@ -77,6 +79,12 @@
                 <div class="demos content">
                     <h2>Demos</h2>
                     
+                        <a href="/projects/liquid3d/">
+                            <div class="demo liquid3d">
+                                <img src="/projects/liquid3d/thumb.png"></img>
+                            </div>
+                        </a>
+                    
                         <a href="/projects/wikipedia-visualization/">
                             <div class="demo wikipedia-visualization">
                                 <img src="/projects/wikipedia-visualization/thumb.png"></img>
@@ -115,6 +123,12 @@
                     
                     <div style="clear: both"></div>
                     <div class="demoinfobox">
+                    
+                        <div class="demoinfo liquid3d">
+                            <h2>Liquid3D</h2>
+                            <p>Recreation of an old Processing demo. Click to force the particles towards the walls.</p>
+
+                        </div>
                     
                         <div class="demoinfo wikipedia-visualization">
                             <h2>Wikipedia Visualization</h2>
