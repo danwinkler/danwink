@@ -60,6 +60,10 @@ function draw() {
 		balls[i].update();
 	}
 
+	for( var i in balls ) {
+		balls[i].updatePos();
+	}
+
 	a += .01;
 
 	camera.position.z = 15;
@@ -78,12 +82,15 @@ function onWindowResize() {
 }
 
 var ballForceVec = new THREE.Vector3();
+var speed = new THREE.Vector3();
+var accel = new THREE.Vector3();
 
 var Ball = function() {
 	this.pos = new THREE.Vector3( randomf(-10,10),randomf(-10,10),randomf(0,10) );
-	this.speed = new THREE.Vector3( 0,0,0 );
+	this.lastPos = new THREE.Vector3().copy( this.pos );
+	this.nextPos = new THREE.Vector3();
 
-	var color = new THREE.Color( Math.random(), Math.random(), Math.random() );
+	var color = new THREE.Color( randomf(0,.2),randomf(0,.6),randomf(.5,1) );
 	var material = new THREE.MeshLambertMaterial({
 		color: color,
 		ambient: color
@@ -97,9 +104,13 @@ var Ball = function() {
 	scene.add( this.geometry );
 
 	this.update = function() {
-		this.geometry.position.set( this.pos.x, this.pos.y, this.pos.z );
+		this.geometry.position.copy( this.pos );
 
-		this.speed.z -= .01;
+		speed.subVectors( this.pos, this.lastPos );
+
+		accel.set( 0, 0, 0 );
+
+		accel.z -= .01;
 
 		for( var i in balls ) {
 			var ball = balls[i];
@@ -107,40 +118,55 @@ var Ball = function() {
 
 			ballForceVec.subVectors( ball.pos, this.pos );
 			var length = ballForceVec.length();
-			var force = .5 / (length*length*length*length);
-			if( force > .05 ) force = .05;
+			var force = 0;
+			if( length < 2 ) {
+				force = .5 / (length*length*length*length);
+				if( force > .05 ) force = .05;
+			}
+			else
+			{
+				force = -.01 / (length*length*length);
+				if( force < -.00005 ) force = -.00005;
+			}
 			ballForceVec.divideScalar( length );
 			ballForceVec.multiplyScalar( force );
-			this.speed.sub( ballForceVec );
+			accel.sub( ballForceVec );
 		}
-
-		this.speed.multiplyScalar( .97 );
-
-		this.pos.add( this.speed );
 
 		if( this.pos.z < 0 ) {
 			var floorRepel = (this.pos.z*this.pos.z) * .1;
-			this.speed.z += floorRepel;
+			accel.z += floorRepel;
 		}
-
-		/*
-		if( this.pos.x > 10 ) this.pos.x = 10;
-		if( this.pos.x < -10 ) this.pos.x = -10;
-		if( this.pos.y > 10 ) this.pos.y = 10;
-		if( this.pos.y < -10 ) this.pos.y = -10;
-		*/
 
 		var x = this.pos.x*this.pos.x;
 		var y = this.pos.y*this.pos.y;
 		var l = Math.sqrt( x+y );
+		/*
 		if( l > 10 ) {
 			this.speed.x += this.pos.x * -.01 * (l-10);
 			this.speed.y += this.pos.y * -.01 * (l-10);
 		}
+		*/
 		if( pressed ) {
-			this.speed.x += .1/l * (this.pos.x);
-			this.speed.y += .1/l * (this.pos.y);
+			accel.x += .1/l * (this.pos.x);
+			accel.y += .1/l * (this.pos.y);
 		}
+
+		speed.multiplyScalar( .97 );
+
+		this.nextPos.copy( this.pos );
+		this.nextPos.add( speed );
+		this.nextPos.add( accel );
+
+		if( this.nextPos.x > 10 ) this.nextPos.x = 10;
+		if( this.nextPos.x < -10 ) this.nextPos.x = -10;
+		if( this.nextPos.y > 10 ) this.nextPos.y = 10;
+		if( this.nextPos.y < -10 ) this.nextPos.y = -10;
+	};
+
+	this.updatePos = function() {
+		this.lastPos.copy( this.pos );
+		this.pos.copy( this.nextPos );
 	};
 }
 
