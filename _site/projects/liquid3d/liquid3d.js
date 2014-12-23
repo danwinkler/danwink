@@ -17,7 +17,6 @@ function begin() {
 	scene.add( camera );
 
 	renderer = new THREE.WebGLRenderer();
-	renderer.shadowMapEnabled = true;
 	renderer.setSize( window.innerWidth, window.innerHeight );
 
 	document.body.appendChild( renderer.domElement );
