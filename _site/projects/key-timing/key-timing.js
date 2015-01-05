@@ -67,11 +67,10 @@ function render() {
 
     for( var i = 0; i < 26; i++ ) {
         for( var j = 0; j < 26; j++ ) {
-            var val = 0;
             if( data[i][j].count == 0 ) {
                 g.fillStyle = "#FFFFFF";
             } else {
-                g.fillStyle = "rgb(" + color( 1.0-(data[i][j].avg / 500) )+ ")";
+                g.fillStyle = "rgb(" + color( 1.0-(data[i][j].avg / 500.0) )+ ")";
             }
             g.fillRect( i*20 + 20, j*20 + 20, 20, 20 );
 
@@ -79,7 +78,7 @@ function render() {
             g.strokeRect( i*20 + 20, j*20 + 20, 20, 20 );
 
             g.strokeStyle = readColor( g.fillStyle );
-            g.strokeText( (val.toFixed( 2 )+'').substring(1), i*20 + 22, j*20 + 32 );
+            g.strokeText( ((data[i][j].avg/1000.0).toFixed( 2 )+'').substring( 1 ), i*20 + 22, j*20 + 32 );
         }
     }
     for( var i = 0; i < 26; i++ ) {
