@@ -6,8 +6,8 @@
 </description>
     <link>http://danwink.com/</link>
     <atom:link href="http://danwink.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 Jan 2015 18:04:20 -0600</pubDate>
-    <lastBuildDate>Sun, 04 Jan 2015 18:04:20 -0600</lastBuildDate>
+    <pubDate>Sun, 04 Jan 2015 19:09:50 -0600</pubDate>
+    <lastBuildDate>Sun, 04 Jan 2015 19:09:50 -0600</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
     
       <item>
@@ -18,7 +18,7 @@
     &lt;/div&gt;
     &lt;textarea id=&quot;text&quot;&gt;&lt;/textarea&gt;
 &lt;/div&gt;
-&lt;div id=&quot;graph&quot;&gt;&lt;/div&gt;
+&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
 
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;rickshaw.js&quot;&gt;&lt;/script&gt;
@@ -29,7 +29,7 @@ $(function() {
 });
 &lt;/script&gt;
 </description>
-        <pubDate>Sun, 04 Jan 2015 17:27:55 -0600</pubDate>
+        <pubDate>Sun, 04 Jan 2015 18:16:42 -0600</pubDate>
         <link>http://danwink.com/projects/key-timing/</link>
         <guid isPermaLink="true">http://danwink.com/projects/key-timing/</guid>
         
