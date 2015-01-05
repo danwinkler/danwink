@@ -2,19 +2,27 @@
 layout: project
 title:  "Key Timing"
 categories: projects
-description: a
+description: |
+    Shows the time taken between two keypresses.
+
+    Type into the textbox on the left, and see the average time to go from a source letter (Y axis) to destination letter (X axis).
+
+    Time is displayed in seconds.
 ---
+<table>
+    <tr>
+        <td class="leftcol">
+            <div class="sourcetext">
+                Type into the textbox!
+            </div>
+            <textarea id="text"></textarea>
+        </td>
+        <td>
+            <canvas id="canvas"></canvas>
+        </td>
+    </tr>
+</table>
 
-<div class="leftcol">
-    <div class="sourcetext">
-
-    </div>
-    <textarea id="text"></textarea>
-</div>
-<canvas id="canvas"></canvas>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="rickshaw.js"></script>
 <script src="key-timing.js"></script>
 <script>
 $(function() {

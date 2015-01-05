@@ -1,24 +1,31 @@
 body, html {
-    height:100%;
+
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+
+    padding-top: 20px;
+}
+
+table {
+    width: 95%;
 }
 
 .leftcol {
-    float: left;
-    width: 50%;
-    height: 100%;
-}
-
-#sourcetext {
-    height: 50%;
-}
-
-#text {
-    height: 50%;
+    height: 600px;
     width: 100%;
 }
 
+.sourcetext {
+    padding: 20px;
+    margin-left: 5%;
+}
+
+#text {
+    height: 480px;
+    width: 90%;
+    margin-left: 5%;
+}
+
 #canvas {
-    float: right;
-    width:50%;
-    height:100%;
+    width: 500px;
+    height: 600px;
 }

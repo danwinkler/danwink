@@ -6,22 +6,26 @@
 </description>
     <link>http://danwink.com/</link>
     <atom:link href="http://danwink.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 Jan 2015 19:09:50 -0600</pubDate>
-    <lastBuildDate>Sun, 04 Jan 2015 19:09:50 -0600</lastBuildDate>
+    <pubDate>Sun, 04 Jan 2015 19:39:45 -0600</pubDate>
+    <lastBuildDate>Sun, 04 Jan 2015 19:39:45 -0600</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
     
       <item>
         <title>Key Timing</title>
-        <description>&lt;div class=&quot;leftcol&quot;&gt;
-    &lt;div class=&quot;sourcetext&quot;&gt;
+        <description>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td class=&quot;leftcol&quot;&gt;
+            &lt;div class=&quot;sourcetext&quot;&gt;
+                Type into the textbox!
+            &lt;/div&gt;
+            &lt;textarea id=&quot;text&quot;&gt;&lt;/textarea&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
 
-    &lt;/div&gt;
-    &lt;textarea id=&quot;text&quot;&gt;&lt;/textarea&gt;
-&lt;/div&gt;
-&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
-
-&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;rickshaw.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;key-timing.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
 $(function() {
@@ -29,7 +33,7 @@ $(function() {
 });
 &lt;/script&gt;
 </description>
-        <pubDate>Sun, 04 Jan 2015 18:16:42 -0600</pubDate>
+        <pubDate>Sun, 04 Jan 2015 19:37:32 -0600</pubDate>
         <link>http://danwink.com/projects/key-timing/</link>
         <guid isPermaLink="true">http://danwink.com/projects/key-timing/</guid>
         

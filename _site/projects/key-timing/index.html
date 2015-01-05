@@ -7,16 +7,20 @@
 <link href="key-timing.css" rel="stylesheet" type="text/css">
 
   <body>
-    <div class="leftcol">
-    <div class="sourcetext">
+    <table>
+    <tr>
+        <td class="leftcol">
+            <div class="sourcetext">
+                Type into the textbox!
+            </div>
+            <textarea id="text"></textarea>
+        </td>
+        <td>
+            <canvas id="canvas"></canvas>
+        </td>
+    </tr>
+</table>
 
-    </div>
-    <textarea id="text"></textarea>
-</div>
-<canvas id="canvas"></canvas>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="rickshaw.js"></script>
 <script src="key-timing.js"></script>
 <script>
 $(function() {
