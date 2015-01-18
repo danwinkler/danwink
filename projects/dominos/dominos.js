@@ -1,16 +1,24 @@
 var scene;
 var camera;
 var renderer;
+var raycaster;
+var mouse;
 
 var world;
 
 var lastTime = 0;
 
-var dominoes = []
+var dominoes = [];
+
+var dominoCannonMaterial = new CANNON.Material();
+
+var mouseDown = false;
 
 function begin() {
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+	raycaster = new THREE.Raycaster();
 
 	scene.add( camera );
 
@@ -38,17 +46,39 @@ function animate( step ) {
 
 function start() {
 	world = new CANNON.World();
-	world.gravity.set(0,0,-9.82); // m/s²
+	world.gravity.set( 0, 0, -9.82 ); // m/s²
 	world.broadphase = new CANNON.NaiveBroadphase();
 
+	var groundCannonMaterial = new CANNON.Material();
+
+	var groundDominoContactMaterial = new CANNON.ContactMaterial(
+		groundCannonMaterial,
+		dominoCannonMaterial,
+		{
+			friction: .2
+		}
+	);
+
+	var dominoDominoContactMaterial = new CANNON.ContactMaterial(
+		dominoCannonMaterial,
+		dominoCannonMaterial,
+		{
+			friction: .01
+		}
+	);
+
+	world.addContactMaterial( groundDominoContactMaterial );
+	world.addContactMaterial( dominoDominoContactMaterial );
+
 	var groundBody = new CANNON.Body({
-		mass: 0 // mass == 0 makes the body static
+		mass: 0, // mass == 0 makes the body static
+		material: groundCannonMaterial
 	});
 	var groundShape = new CANNON.Plane();
 	groundBody.addShape(groundShape);
 	world.add(groundBody);
 
-	var color = new THREE.Color( Math.random(), Math.random(), Math.random() );
+	var color = new THREE.Color( .7, .5, .1 );
 
 	var groundGeom = new THREE.PlaneBufferGeometry( 100, 100 );
 	var groundMesh = new THREE.Mesh(
@@ -88,16 +118,67 @@ function start() {
 
 	camera.up = new THREE.Vector3( 0, 0, 1 );
 
-	for( var x = 0; x < 10; x++ )
+	/*
+	for( var a = 0; a < Math.PI*2; a += Math.PI / 8 )
 	{
-		dominoes.push( new Domino( 0, x*3, 0 ) );
+		var x = Math.cos( a ) * 10;
+		var y = Math.sin( a ) * 10;
+		dominoes.push( new Domino( x, y, a ) );
+		break;
 	}
+	*/
 
-	var domB = dominoes[0].body;
-	domB.applyImpulse(
-		new CANNON.Vec3( domB.position.x, domB.position.y, domB.position.z-1 ),
-		new CANNON.Vec3( 0, -1, 0 )
-	);
+	document.onkeydown = function (e) {
+		if( e.keyCode == 32 ) {
+			var domB = dominoes[0].body;
+			domB.applyImpulse(
+				new CANNON.Vec3( 0, -1, 0 ),
+				new CANNON.Vec3( domB.position.x, domB.position.y, domB.position.z )
+			);
+		}
+	};
+
+	mouse = new THREE.Vector2();
+
+	var mouseListener = function( e ) {
+		if( !mouseDown ) return;
+		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+		mouse.y = -( event.clientY / window.innerHeight ) * 2 + 1;
+
+		raycaster.setFromCamera( mouse, camera );
+		var intersect = raycaster.intersectObject( groundMesh )[0];
+
+		if( !intersect ) {
+			return;
+		}
+
+		var dx = 0;
+		var dy = 1;
+
+		if( dominoes.length > 0 ) {
+			var lastDomino = dominoes[dominoes.length-1];
+
+			var dx = lastDomino.body.position.x-intersect.point.x;
+			var dy = lastDomino.body.position.y-intersect.point.y;
+
+			var distance = dx*dx + dy*dy;
+			if( distance < 2*2 ) {
+				return;
+			}
+		}
+
+		dominoes.push( new Domino(
+			intersect.point.x,
+			intersect.point.y,
+			-Math.atan2( -dy, dx ) + Math.PI*.5
+		) );
+	};
+
+	$("canvas").mousemove( mouseListener );
+	$("canvas").mousedown( mouseListener );
+
+	$("canvas").mousedown( function() { mouseDown = true; } );
+	$("canvas").mouseup( function() { mouseDown = false; } );
 
 	//controls = new THREE.OrbitControls( camera, renderer.domElement );
 }
@@ -124,14 +205,17 @@ function onWindowResize() {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 }
 
-var shape = new CANNON.Box( new CANNON.Vec3( 1, .1, 3 ) );
+var shape = new CANNON.Box( new CANNON.Vec3( 1, .2, 3 ) );
 
 var Domino = function( x, y, rot ) {
-	this.body = new CANNON.Body({ mass: 1 });
+	this.body = new CANNON.Body({
+		mass: 1,
+		material: dominoCannonMaterial
+	});
 	this.body.addShape( shape );
 	this.body.position.set( x, y, 3 );
 
-	this.body.quaternion.setFromAxisAngle( new CANNON.Vec3(0,0,1), rot );
+	this.body.quaternion.setFromAxisAngle( new CANNON.Vec3( 0, 0, 1 ), rot );
 
 	var color = new THREE.Color( Math.random(), Math.random(), Math.random() );
 
@@ -148,6 +232,7 @@ var Domino = function( x, y, rot ) {
 	);
 
 	this.geometry.castShadow = true;
+	this.geometry.receiveShadow = true;
 
 	world.add( this.body );
 	scene.add( this.geometry );
@@ -162,4 +247,14 @@ var Domino = function( x, y, rot ) {
 
 function randomf( min, max ) {
 	return Math.random() * (max - min) + min;
+}
+
+function toRadians( a )
+{
+	return a * (Math.PI / 180);
+}
+
+function toDegrees( a )
+{
+	return a / (Math.PI / 180);
 }
