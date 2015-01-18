@@ -18,9 +18,9 @@ function begin() {
 
     data = [];
 
-    for( var i = 0; i < 26; i++ ) {
+    for( var i = 0; i < 27; i++ ) {
         data.push( [] );
-        for( var j = 0; j < 26; j++ ) {
+        for( var j = 0; j < 27; j++ ) {
             data[i].push( { avg: 0, total: 0, count: 0 } )
         }
     }
@@ -28,10 +28,11 @@ function begin() {
     render();
 
     $('#text').bind( 'keydown', function (e) {
-        if( e.keyCode >= 65 && e.keyCode <= 90 ) {
+        if( e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode == 32 ) {
             var d = new Date();
             var time = d.getTime();
             var key = e.keyCode - 65;
+            if( e.keyCode == 32 ) key = 26;
             if( lastKey != null ) {
                 var timeDiff = time - lastPress;
                 if( timeDiff < maxKeyTime ) {
@@ -65,8 +66,8 @@ function render() {
     g.fillStyle = "#FFFFFF";
     g.fillRect( 0, 0, canvas.width, canvas.height );
 
-    for( var i = 0; i < 26; i++ ) {
-        for( var j = 0; j < 26; j++ ) {
+    for( var i = 0; i < 27; i++ ) {
+        for( var j = 0; j < 27; j++ ) {
             if( data[i][j].count == 0 ) {
                 g.fillStyle = "#FFFFFF";
             } else {
@@ -81,9 +82,15 @@ function render() {
             g.strokeText( ((data[i][j].avg/1000.0).toFixed( 2 )+'').substring( 1 ), i*20 + 22, j*20 + 32 );
         }
     }
-    for( var i = 0; i < 26; i++ ) {
-        g.strokeText( String.fromCharCode(i+65), 5, i*20 + 35 );
-        g.strokeText( String.fromCharCode(i+65), i*20 + 25, 10 );
+    for( var i = 0; i < 27; i++ ) {
+        if( i == 26 ) {
+            g.strokeText( "_", 5, i*20 + 35 );
+            g.strokeText( "_", i*20 + 25, 10 );
+        }
+        else {
+            g.strokeText( String.fromCharCode(i+65), 5, i*20 + 35 );
+            g.strokeText( String.fromCharCode(i+65), i*20 + 25, 10 );
+        }
     }
 }
 
