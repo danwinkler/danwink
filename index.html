@@ -35,14 +35,16 @@ layout: default
             <div class="contentframe">
                 <div class="demos content">
                     <h2>Demos</h2>
-                    {% for post in site.posts %}
-                        <a href="{{ post.url }}">
-                            <div class="demo {{ post.title | slugify }}">
-                                <img src="/projects/{{ post.title | slugify }}/thumb.png"></img>
-                            </div>
-                        </a>
-                    {% endfor %}
-                    <div style="clear: both"></div>
+                    <div class="demolist">
+                        {% for post in site.posts %}
+                            <a href="{{ post.url }}">
+                                <div class="demo {{ post.title | slugify }}">
+                                    <img src="/projects/{{ post.title | slugify }}/thumb.png"></img>
+                                </div>
+                            </a>
+                        {% endfor %}
+                        <div style="clear: both"></div>
+                    </div>
                     <div class="demoinfobox">
                     {% for post in site.posts %}
                         <div class="demoinfo {{ post.title | slugify }}">
