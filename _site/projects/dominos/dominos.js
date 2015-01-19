@@ -129,12 +129,24 @@ function start() {
 	*/
 
 	document.onkeydown = function (e) {
+		if( dominoes.length < 2 ) return;
 		if( e.keyCode == 32 ) {
-			var domB = dominoes[0].body;
-			domB.applyImpulse(
-				new CANNON.Vec3( 0, -1, 0 ),
-				new CANNON.Vec3( domB.position.x, domB.position.y, domB.position.z )
+			var domA = dominoes[0].body;
+			var domB = dominoes[1].body;
+			var dx = domA.position.x - domB.position.x;
+			var dy = domA.position.y - domB.position.y;
+			var length = Math.sqrt( dx*dx + dy*dy );
+			dx /= length;
+			dy /= length;
+			domA.applyImpulse(
+				new CANNON.Vec3( -dx, -dy, 0 ),
+				new CANNON.Vec3( domB.position.x - dx, domB.position.y - dy, domB.position.z )
 			);
+		} else if( e.keyCode == 82 ) { // R
+			while( dominoes.length > 0 ) {
+				var d = dominoes.pop();
+				d.delete();
+			}
 		}
 	};
 
@@ -172,6 +184,13 @@ function start() {
 			intersect.point.y,
 			-Math.atan2( -dy, dx ) + Math.PI*.5
 		) );
+
+		if( dominoes.length == 2 ) {
+			dominoes[0].body.quaternion.setFromAxisAngle(
+				new CANNON.Vec3( 0, 0, 1 ),
+				-Math.atan2( -dy, dx ) + Math.PI*.5
+			);
+		}
 	};
 
 	$("canvas").mousemove( mouseListener );
@@ -240,6 +259,11 @@ var Domino = function( x, y, rot ) {
 	this.update = function() {
 		this.geometry.position.copy( this.body.position );
 		this.geometry.quaternion.copy( this.body.quaternion );
+	};
+
+	this.delete = function() {
+		world.remove( this.body );
+		scene.remove( this.geometry );
 	};
 
 	this.update();
