@@ -8,6 +8,15 @@ var lastPress;
 var maxAvg = 1000;
 var maxKeyTime = 1000;
 
+var keyMap = {};
+for( var i = 0; i < 26; i++ )
+{
+    keyMap[i+65] = i;
+}
+keyMap[32] = 26;
+
+var keyMapLength = 27;
+
 function begin() {
     canvas = document.getElementById("canvas");
 
@@ -18,10 +27,10 @@ function begin() {
 
     data = [];
 
-    for( var i = 0; i < 27; i++ ) {
+    for( var i = 0; i < keyMapLength; i++ ) {
         data.push( [] );
-        for( var j = 0; j < 27; j++ ) {
-            data[i].push( { avg: 0, total: 0, count: 0 } )
+        for( var j = 0; j < keyMapLength; j++ ) {
+            data[i].push( { avg: 0, total: 0, count: 0 } );
         }
     }
 
@@ -95,7 +104,6 @@ function render() {
 }
 
 //Modified from http://stackoverflow.com/a/10941401/356882
-
 function color( value ) {
     var RGB = {R:0,G:0,B:0};
 
@@ -132,7 +140,6 @@ function color( value ) {
         RGB.B = 0;
     }
 
-    // scale for hex conversion
     RGB.R *= 255;
     RGB.G *= 255;
     RGB.B *= 255;
