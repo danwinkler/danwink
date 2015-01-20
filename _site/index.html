@@ -4,10 +4,13 @@
   <head>
     <title>Daniel Winkler</title>
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
     <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="js/dpages.jquery.js"></script>
+    <script src="js/perfect-scrollbar.min.js"></script>
     <script>
     $(function() {
+        $(".demolist").perfectScrollbar();
         $(".contentframe .demos").dpage( $(".buttons .demos") );
         $(".contentframe .about").dpage( $(".buttons .about") );
         

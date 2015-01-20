@@ -153,10 +153,11 @@ a:hover {
 }
 
 .demolist {
+	position: relative;
 	float: left;
 	width: 378px;
-	overflow-y: scroll;
-	max-height: 378px;
+	height: 378px;
+	overflow: hidden;
 }
 
 .demoinfobox {
