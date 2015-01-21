@@ -49,6 +49,8 @@ function start() {
 	world.gravity.set( 0, 0, -9.82 ); // m/s²
 	world.broadphase = new CANNON.NaiveBroadphase();
 
+	world.allowSleep = true;
+
 	var groundCannonMaterial = new CANNON.Material();
 
 	var groundDominoContactMaterial = new CANNON.ContactMaterial(
@@ -142,6 +144,7 @@ function start() {
 				new CANNON.Vec3( -dx, -dy, 0 ),
 				new CANNON.Vec3( domB.position.x - dx, domB.position.y - dy, domB.position.z )
 			);
+			domA.wakeUp();
 		} else if( e.keyCode == 82 ) { // R
 			while( dominoes.length > 0 ) {
 				var d = dominoes.pop();
@@ -233,6 +236,8 @@ var Domino = function( x, y, rot ) {
 	});
 	this.body.addShape( shape );
 	this.body.position.set( x, y, 3 );
+
+	this.body.allowSleep = true;
 
 	this.body.quaternion.setFromAxisAngle( new CANNON.Vec3( 0, 0, 1 ), rot );
 

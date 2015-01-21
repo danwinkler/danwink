@@ -15,7 +15,7 @@ for( var i = 0; i < 26; i++ )
 }
 keyMap[32] = 26;
 
-var keyMapLength = 27;
+var keyMapLength = Object.keys(keyMap).length; //Slow (makes a whole new array) but who cares
 
 function begin() {
     canvas = document.getElementById("canvas");
@@ -37,11 +37,10 @@ function begin() {
     render();
 
     $('#text').bind( 'keydown', function (e) {
-        if( e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode == 32 ) {
+        if( e.keyCode in keyMap ) {
             var d = new Date();
             var time = d.getTime();
-            var key = e.keyCode - 65;
-            if( e.keyCode == 32 ) key = 26;
+            var key = keyMap[e.keyCode];
             if( lastKey != null ) {
                 var timeDiff = time - lastPress;
                 if( timeDiff < maxKeyTime ) {
