@@ -53,14 +53,14 @@ function beginVis()
 	if( pagename )
 	{
 		getWiki( pagename, 0 );
-		
+
 		setInterval( update, 1000 / 30 );
 	}
 	else
 	{
 		$(".helpbox").show();
 	}
-	
+
 	$("#canvas").click( function( e ) {
 		for( var i in pages )
 		{
@@ -77,7 +77,7 @@ function getWiki( page, depth )
 {
 	if( depth == maxDepth ) return;
 	$.ajax({
-		url: "http://en.wikipedia.org/w/api.php?action=query&prop=links&pllimit=500&format=json&titles=" + page,
+		url: "https://en.wikipedia.org/w/api.php?action=query&prop=links&pllimit=500&format=json&titles=" + page,
 		dataType: 'jsonp',
 		success: function( data ) {
 			tdata = data;
@@ -95,7 +95,7 @@ function getWiki( page, depth )
 				window.pages[page].links.push( links[i]['title'] );
 			}
 			for( var i in links )
-			{	
+			{
 				var title = links[i]['title'];
 				if( title.startsWith( "Wikipedia:" ) ) continue;
 				if( title.startsWith( "Category:" ) ) continue;
@@ -130,7 +130,7 @@ function Page( name, x, y ) {
 				var cx = (other.x - this.x);
 				var cy = (other.y - this.y);
 				var len = Math.sqrt( cx*cx + cy*cy ) - 300;
-				
+
 				var mx = (cx * len) * .000001;
 				var my = (cy * len) * .000001;
 				if( len > .1 )
@@ -142,7 +142,7 @@ function Page( name, x, y ) {
 				}
 			}
 		}
-		
+
 		for( var i in pages )
 		{
 			var other = pages[i];
@@ -151,7 +151,7 @@ function Page( name, x, y ) {
 				var cx = (other.x - this.x);
 				var cy = (other.y - this.y);
 				var len = Math.sqrt( cx*cx + cy*cy ) ;
-				
+
 				var mx = (cx / (len*len)) * .1;
 				var my = (cy / (len*len)) * .1;
 				if( len > .1 )
@@ -167,7 +167,7 @@ function Page( name, x, y ) {
 		this.y += this.dy;
 		this.dx *= .9;
 		this.dy *= .9;
-		
+
 		if( this.x < 10 )
 			this.x = 10;
 		if( this.x > canvas.width-10 )
@@ -200,7 +200,7 @@ function Page( name, x, y ) {
 				ly /= len;
 				lx *= 2;
 				ly *= 2;
-				
+
 				drawLine( this.x + ly, this.y - lx, pages[this.links[i]].x + ly, pages[this.links[i]].y - lx );
 			}
 		}
@@ -240,7 +240,7 @@ function fillOval(aX, aY, aWidth, aHeight)
 	ellipse(aX, aY, aWidth, aHeight);
 	c.fill();
 }
-	
+
 function drawOval(aX, aY, aWidth, aHeight)
 {
 	c.beginPath();
