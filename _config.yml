@@ -17,5 +17,5 @@ permalink: /:categories/:title/
 collections:
     demos:
         output: true
-    portfolio:
+    projects:
         output: true
