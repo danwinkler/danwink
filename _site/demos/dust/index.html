@@ -7,9 +7,32 @@
 
 <script src="/js/jquery-3.1.0.min.js"></script>
 
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
 <body>
-    <div class="container-fluid">
-        <canvas id="canvas"></canvas>
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Dust</h1>
+            <p>A simple particle system with mouse controls.</p>
+
+<p>Wave your mouse to push particles.<br />
+Click and hold to attract particles.<br />
+If you release the mouse and wait, particles will shoot out randomly.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <canvas id="canvas"></canvas>
 
 <script src="dust.js"></script>
 <script>
@@ -18,6 +41,7 @@ $(function() {
 });
 </script>
 
+        </div>
     </div>
     <script src="/js/jquery-3.1.0.min.js"></script>
 <script src="/js/bootstrap.js"></script>

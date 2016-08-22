@@ -7,9 +7,30 @@
 
 <script src="/js/jquery-3.1.0.min.js"></script>
 
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
 <body>
-    <div class="container-fluid">
-        <script src="three.min.js"></script>
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Cityscape</h1>
+            <p>A simple, stylized cityscape.</p>
+
+<p>Ported from an old (2010) Java demo to WebGL using three.js.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <script src="three.min.js"></script>
 <script src="cityscape.js"></script>
 <script>
 $(function() {
@@ -17,6 +38,7 @@ $(function() {
 });
 </script>
 
+        </div>
     </div>
     <script src="/js/jquery-3.1.0.min.js"></script>
 <script src="/js/bootstrap.js"></script>

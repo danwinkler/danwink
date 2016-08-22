@@ -16,7 +16,7 @@ var mouseDown = false;
 
 function begin() {
 	scene = new THREE.Scene();
-	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	camera = new THREE.PerspectiveCamera( 75, projWidth() / projHeight(), 0.1, 1000 );
 
 	raycaster = new THREE.Raycaster();
 
@@ -24,9 +24,9 @@ function begin() {
 
 	renderer = new THREE.WebGLRenderer({antialias: true});
 	renderer.shadowMapEnabled = true;
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( projWidth(), projHeight() );
 
-	document.body.appendChild( renderer.domElement );
+	$(".project-div").append( renderer.domElement );
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
@@ -157,8 +157,11 @@ function start() {
 
 	var mouseListener = function( e ) {
 		if( !mouseDown ) return;
-		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-		mouse.y = -( event.clientY / window.innerHeight ) * 2 + 1;
+
+		var cx = event.clientX - $(".project-div").offset().left;
+
+		mouse.x = ( cx / projWidth() ) * 2 - 1;
+		mouse.y = -( event.clientY / projHeight() ) * 2 + 1;
 
 		raycaster.setFromCamera( mouse, camera );
 		var intersect = raycaster.intersectObject( groundMesh )[0];
@@ -221,10 +224,10 @@ function draw( step ) {
 }
 
 function onWindowResize() {
-	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.aspect = projWidth() / projHeight();
 	camera.updateProjectionMatrix();
 
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( projWidth(), projHeight() );
 }
 
 var shape = new CANNON.Box( new CANNON.Vec3( 1, .2, 3 ) );

@@ -7,9 +7,30 @@
 
 <script src="/js/jquery-3.1.0.min.js"></script>
 
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
 <body>
-    <div class="container-fluid">
-        <div class="textbox">
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Wikipedia Visualization</h1>
+            <p>Shows a graphical representation of the links between Wikipedia articles.</p>
+
+<p>Type in the title of a Wikipedia article and press enter.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <div class="textbox">
     <div class="helpbox" style="display: none">
         Type the name of a Wikipedia article!
     </div>
@@ -26,6 +47,7 @@ $(function() {
 });
 </script>
 
+        </div>
     </div>
     <script src="/js/jquery-3.1.0.min.js"></script>
 <script src="/js/bootstrap.js"></script>

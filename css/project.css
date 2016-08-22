@@ -1,1 +1,22 @@
 * { margin: 0; padding: 0; }
+
+body, html {
+    height: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.project-div {
+    height: 100%;
+}
+
+.project-container {
+    height: 100%;
+}
+
+.back-box {
+    margin-top: 15px;
+    font-size: 20px;
+}

@@ -17,31 +17,31 @@ var petalImg;
 
 var petals = [];
 
-var oldWindowWidth = window.innerWidth;
-var oldWindowHeight = window.innerHeight;
+var oldWindowWidth = projWidth();
+var oldWindowHeight = projHeight();
 
 function begin()
 {
     canvas = document.getElementById("canvas");
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = projWidth();
+    canvas.height = projHeight();
 
-    oldWindowWidth = window.innerWidth;
-    oldWindowHeight = window.innerHeight;
+    oldWindowWidth = projWidth();
+    oldWindowHeight = projHeight();
 
     g = canvas.getContext('2d');
 
     window.addEventListener( 'resize', function() {
-        var dx = window.innerWidth - oldWindowWidth;
-        var dy = window.innerHeight - oldWindowHeight;
+        var dx = projWidth() - oldWindowWidth;
+        var dy = projHeight() - oldWindowHeight;
         for( var i in petals ) {
             var petal = petals[i];
             petal.x += dx/2;
             petal.y += dy;
         }
-        oldWindowWidth = window.innerWidth;
-        oldWindowHeight = window.innerHeight;
+        oldWindowWidth = projWidth();
+        oldWindowHeight = projHeight();
     }, false );
 
     start();
@@ -68,10 +68,10 @@ function newTree()
 
 function draw()
 {
-    if( canvas.width != window.innerWidth || canvas.height != window.innerHeight )
+    if( canvas.width != projWidth() || canvas.height != projHeight() )
     {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = projWidth();
+        canvas.height = projHeight();
         g.fillStyle = "#FFFFFF";
         g.fillRect( 0, 0, canvas.width, canvas.height );
     }

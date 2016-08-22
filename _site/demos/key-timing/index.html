@@ -7,9 +7,32 @@
 
 <script src="/js/jquery-3.1.0.min.js"></script>
 
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
 <body>
-    <div class="container-fluid">
-        <table>
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Key Timing</h1>
+            <p>Shows the time taken between two keypresses.</p>
+
+<p>Type into the textbox on the left, and see the average time to go from a source letter (Y axis) to destination letter (X axis).</p>
+
+<p>Time is displayed in seconds.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <table>
     <tr>
         <td class="leftcol">
             <div class="sourcetext">
@@ -32,6 +55,7 @@ $(function() {
 });
 </script>
 
+        </div>
     </div>
     <script src="/js/jquery-3.1.0.min.js"></script>
 <script src="/js/bootstrap.js"></script>

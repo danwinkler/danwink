@@ -7,9 +7,30 @@
 
 <script src="/js/jquery-3.1.0.min.js"></script>
 
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
 <body>
-    <div class="container-fluid">
-        <img src="trunk1.png" id="trunk" style="display: none" />
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Cherry Blossom</h1>
+            <p>A tree waves in the wind using a recursive tree structure and a particle system.</p>
+
+<p>Click to generate a new tree.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <img src="trunk1.png" id="trunk" style="display: none" />
 <img src="petal1.png" id="petal" style="display: none" />
 <canvas id="canvas"></canvas>
 
@@ -21,6 +42,7 @@ $(function() {
 });
 </script>
 
+        </div>
     </div>
     <script src="/js/jquery-3.1.0.min.js"></script>
 <script src="/js/bootstrap.js"></script>

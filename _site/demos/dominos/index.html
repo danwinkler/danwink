@@ -7,9 +7,32 @@
 
 <script src="/js/jquery-3.1.0.min.js"></script>
 
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
 <body>
-    <div class="container-fluid">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Dominos</h1>
+            <p>Click and drag around the board to draw a line a dominos.</p>
+
+<p>Press spacebar to knock them down!</p>
+
+<p>Press R to clear the board.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
 <script src="cannon.js"></script>
 <script src="dominos.js"></script>
 <script src="http://threejs.org/examples/js/controls/OrbitControls.js"></script>
@@ -19,6 +42,7 @@ $(function() {
 });
 </script>
 
+        </div>
     </div>
     <script src="/js/jquery-3.1.0.min.js"></script>
 <script src="/js/bootstrap.js"></script>

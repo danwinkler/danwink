@@ -7,9 +7,28 @@
 
 <script src="/js/jquery-3.1.0.min.js"></script>
 
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
 <body>
-    <div class="container-fluid">
-        <script src="three.min.js"></script>
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Liquid3D</h1>
+            <p>Recreation of an old Processing demo. Click to force the particles towards the walls.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <script src="three.min.js"></script>
 <script src="liquid3d.js"></script>
 <script>
 $(function() {
@@ -17,6 +36,7 @@ $(function() {
 });
 </script>
 
+        </div>
     </div>
     <script src="/js/jquery-3.1.0.min.js"></script>
 <script src="/js/bootstrap.js"></script>
