@@ -1,0 +1,17 @@
+---
+layout: project
+title:  "Cherry Blossom"
+description: Renders a  tree waving in the wind using a recursive tree structure and a particle system.
+---
+
+<img src="trunk1.png" id="trunk" style="display: none" />
+<img src="petal1.png" id="petal" style="display: none" />
+<canvas id="canvas"></canvas>
+
+<script src="cherry-blossom.js"></script>
+<script>
+$(function() {
+    begin();
+    $("#canvas").click( newTree );
+});
+</script>

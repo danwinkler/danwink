@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<div class="row text-center">
+    {% for demo in site.demos %}
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 demo-box">
+            <a href="{{demo.url}}">
+                <img src="/demos/{{ demo.title | slugify }}/thumb.png"></img>
+            </a>
+        </div>
+    {% endfor %}
+</div>

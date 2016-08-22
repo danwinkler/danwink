@@ -1,231 +1,53 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
+<head>
     <title>Daniel Winkler</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
-    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/dpages.jquery.js"></script>
-    <script src="js/perfect-scrollbar.min.js"></script>
-    <script>
-    $(function() {
-        $(".demolist").perfectScrollbar();
-        $(".contentframe .demos").dpage( $(".buttons .demos") );
-        $(".contentframe .about").dpage( $(".buttons .about") );
-        
-        mouseOverShow( "dominos" );
-        
-        mouseOverShow( "key-timing" );
-        
-        mouseOverShow( "liquid3d" );
-        
-        mouseOverShow( "wikipedia-visualization" );
-        
-        mouseOverShow( "spaceattack" );
-        
-        mouseOverShow( "cityscape" );
-        
-        mouseOverShow( "flocking" );
-        
-        mouseOverShow( "dust" );
-        
-        mouseOverShow( "cherry-blossom" );
-        
-    });
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-    function mouseOverShow( name ) {
-        $( "." + name + ".demo" ).mouseenter( function() {
-            $(".demoinfo").hide();
-            $( "." + name + ".demoinfo" ).fadeIn( 400 );
-        } );
-        $( "." + name + ".demo").mouseleave( function() {
-            $( "." + name + ".demoinfo" ).fadeOut( 400 );
-        } );
-    }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<body>
+<div class="container">
+    <div class="row header-row">
+    <div class="col-xs-12">
+        <h1 class="text-center">Daniel Winkler</h1>
+    </div>
+</div>
+<!--
+<div class="row face-row text-center">
+    <div class="col-xs-12">
+        <img src="/img/face1.jpg" class="img-circle face-img"/>
+    </div>
+</div>
+-->
+<div class="row button-row text-center">
+    <div class="col-xs-2 col-xs-offset-2">
+        <a href="/"><strong>Home</strong></a>
+    </div>
+    <div class="col-xs-2">
+        <a href="/portfolio/"><strong>Portfolio</strong></a>
+    </div>
+    <div class="col-xs-2">
+        <a href="/demos/"><strong>Demos</strong></a>
+    </div>
+    <div class="col-xs-2">
+        <a href="/blog/"><strong>Blog</strong></a>
+    </div>
+</div>
 
-  <body>
 
-    
+    <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-centered about-text">
 
+        <div class="pull-left text-img-box"><img src="/img/face1.jpg" class="img-circle text-img"/></div>
 
-    <div class="container">
-    <div class="innercont">
-        <div class="leftcol">
-            <div class="buttons">
-                <div class="logo">
-                    <div class="daniel">
-                        Daniel
-                    </div>
-                    <div class="winkler">
-                        Winkler
-                    </div>
-                </div>
-                <div class="demos button">
-                    Demos
-                </div><div class="buttonsep"></div>
-                <div class="about button">
-                    About
-                </div><div class="buttonsep"></div>
-                <a href="/blog">
-                    <div class="blog button">
-                        Blog
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="separator">
-            <div class="topsep"></div>
-            <div class="bottomsep"></div>
-        </div>
-        <div class="rightcol">
-            <div class="contentframe">
-                <div class="demos content">
-                    <h2>Demos</h2>
-                    <div class="demolist">
-                        
-                            <a href="/projects/dominos/">
-                                <div class="demo dominos">
-                                    <img src="/projects/dominos/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/key-timing/">
-                                <div class="demo key-timing">
-                                    <img src="/projects/key-timing/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/liquid3d/">
-                                <div class="demo liquid3d">
-                                    <img src="/projects/liquid3d/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/wikipedia-visualization/">
-                                <div class="demo wikipedia-visualization">
-                                    <img src="/projects/wikipedia-visualization/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/spaceattack/">
-                                <div class="demo spaceattack">
-                                    <img src="/projects/spaceattack/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/cityscape/">
-                                <div class="demo cityscape">
-                                    <img src="/projects/cityscape/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/flocking/">
-                                <div class="demo flocking">
-                                    <img src="/projects/flocking/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/dust/">
-                                <div class="demo dust">
-                                    <img src="/projects/dust/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                            <a href="/projects/cherry-blossom/">
-                                <div class="demo cherry-blossom">
-                                    <img src="/projects/cherry-blossom/thumb.png"></img>
-                                </div>
-                            </a>
-                        
-                        <div style="clear: both"></div>
-                    </div>
-                    <div class="demoinfobox">
-                    
-                        <div class="demoinfo dominos">
-                            <h2>Dominos</h2>
-                            <p>Click and drag around the board to draw a line a dominos.</p>
+        
+        <p>Hi! My name is Daniel Winkler. I’m a Software Developer with an interest in art and science.</p>
 
-<p>Press spacebar to knock them down!</p>
-
-<p>Press R to clear the board.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo key-timing">
-                            <h2>Key Timing</h2>
-                            <p>Shows the time taken between two keypresses.</p>
-
-<p>Type into the textbox on the left, and see the average time to go from a source letter (Y axis) to destination letter (X axis).</p>
-
-<p>Time is displayed in seconds.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo liquid3d">
-                            <h2>Liquid3D</h2>
-                            <p>Recreation of an old Processing demo. Click to force the particles towards the walls.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo wikipedia-visualization">
-                            <h2>Wikipedia Visualization</h2>
-                            <p>Shows a graphical representation of the links between Wikipedia articles.</p>
-
-<p>Type in the title of a Wikipedia article and press enter.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo spaceattack">
-                            <h2>SpaceAttack</h2>
-                            <p>Game written in 2007, when I was in high school. Ported from Java to JS.</p>
-
-<p>I tried to preserve as much of the behavior and code structure as I wrote it originally, bugs and all.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo cityscape">
-                            <h2>Cityscape</h2>
-                            <p>A simple, stylized cityscape.</p>
-
-<p>Ported from an old (2010) Java demo to WebGL using three.js.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo flocking">
-                            <h2>Flocking</h2>
-                            <p>A basic implementation of flocking, inspired by Craig Reynolds’ classic Boids simulation.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo dust">
-                            <h2>Dust</h2>
-                            <p>A simple particle system with mouse controls.</p>
-
-<p>Wave your mouse to push particles.<br />
-Click and hold to attract particles.<br />
-If you release the mouse and wait, particles will shoot out randomly.</p>
-
-                        </div>
-                    
-                        <div class="demoinfo cherry-blossom">
-                            <h2>Cherry Blossom</h2>
-                            <p>Renders a  tree waving in the wind using a recursive tree structure and a particle system.</p>
-
-                        </div>
-                    
-                    </div>
-                </div>
-                <div class="about content">
-                    
-                    <p>My name is Daniel Winkler.</p>
-
-<p>I am interested in science, programming, and art.</p>
-
-<p>I discovered programming in elementary school with a TRS-80 Basic Emulator and Lego Mindstorms. Beginning in middle school, I spent my summers working in a molecular biology lab at the University of Texas at Austin. In another life I may have been an electrical engineer, but after frying too many microcontrollers in high school, I moved toward software, which I found more forgiving. Nevertheless, I still find myself somewhere in between software and hardware, tinkering with CNC mills, 3D printers, and robots in general.</p>
+<p>I discovered programming in elementary school with a TRS-80 BASIC Emulator and Lego Mindstorms. Beginning in middle school, I spent my summers working in a molecular biology lab. In another life I may have been an electrical engineer, but after frying too many microcontrollers in high school, I moved toward software, which I found more forgiving. Nevertheless, I still find myself somewhere in between software and hardware, tinkering with CNC mills, 3D printers, and robots in general.</p>
 
 <!---
 
@@ -236,15 +58,12 @@ I love finding the beauty in the patterns in nature and in mathematics.
 
 -->
 
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
 
-
-    <script>
+    <script src="/js/bootstrap.js"></script>
+<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -255,7 +74,7 @@ I love finding the beauty in the patterns in nature and in mathematics.
 
 </script>
 
-
-  </body>
+</div>
+</body>
 
 </html>

@@ -1,28 +1,8 @@
 <head>
     <title>Daniel Winkler</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
-    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/dpages.jquery.js"></script>
-    <script src="js/perfect-scrollbar.min.js"></script>
-    <script>
-    $(function() {
-        $(".demolist").perfectScrollbar();
-        $(".contentframe .demos").dpage( $(".buttons .demos") );
-        $(".contentframe .about").dpage( $(".buttons .about") );
-        {% for post in site.posts %}
-        mouseOverShow( "{{ post.title | slugify }}" );
-        {% endfor %}
-    });
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-    function mouseOverShow( name ) {
-        $( "." + name + ".demo" ).mouseenter( function() {
-            $(".demoinfo").hide();
-            $( "." + name + ".demoinfo" ).fadeIn( 400 );
-        } );
-        $( "." + name + ".demo").mouseleave( function() {
-            $( "." + name + ".demoinfo" ).fadeOut( 400 );
-        } );
-    }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>

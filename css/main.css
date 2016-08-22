@@ -1,174 +1,43 @@
 body,html {
-	margin: 0;
-	padding: 0;
-
-	height: 100%;
-	background-color: #000000;
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-family: 'Roboto', Futura, Arial, sans-serif;
 }
 
-.container {
-	background-color: #000000;
-	color: #dddddd;
-	height: 100%;
-}
-
-a:link {
-	text-decoration: none;
-	color: #dddddd;
-}
-a:visited {
-	text-decoration: none;
-	color: #dddddd;
-}
-a:active {
-	text-decoration: none;
-	color: #dddddd;
-}
 a:hover {
-	text-decoration: none;
-	color: #dddddd;
+    text-decoration: none;
 }
 
-.innercont {
-	margin: 0 auto;
-	width: 900px;
-	height: 100%;
-}
-
-.leftcol {
-	float: left;
-	width: 179px;
-	height: 100%;
-	min-height: 600px;
-	display: table;
-}
-
-.separator {
-	width: 1px;
-	height: 100%;
-	float: left;
-}
-
-.topsep {
-	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(68,68,68,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(68,68,68,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#444444',GradientType=0 ); /* IE6-9 */
-
-	width: 1px;
-	height: 50%;
-}
-
-.bottomsep {
-	background: -moz-linear-gradient(top,  rgba(68,68,68,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(68,68,68,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(68,68,68,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(68,68,68,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(68,68,68,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(68,68,68,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
-
-	width: 1px;
-	height: 50%;
-}
-
-.buttons {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.logo {
-	position: relative;
-	top: -100px;
-	font-size: 25px;
-	font-weight: bold;
-}
-
-.daniel {
-	text-align: center;
-}
-
-.winkler {
-	text-align: center;
-}
-
-.buttonsep {
-	background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(68,68,68,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(68,68,68,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* IE10+ */
-	background: linear-gradient(left, rgba(255,255,255,0) 0%,rgba(68,68,68,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#444444',GradientType=1 ); /* IE6-9 */
-
-	height: 1px;
-}
-
-.button {
-	text-align: center;
-	height: 50px;
-	cursor: pointer;
+.about-text {
 	font-size: 20px;
-	padding-top: 25px;
+	line-height: 1.8;
 }
 
-.rightcol {
-	float: left;
-	width: 720px;
-	height: 100%;
+.header-row {
+	margin-top: 50px;
 }
 
-.contentframe {
-	display: table;
-	height: 100%;
-	padding-left: 40px;
-	padding-top: 40px;
-}
-
-.content {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.contentframe .demos {
+.face-row {
 
 }
 
-.demo {
-	float: left;
+.face-img {
 	width: 100px;
-	height: 100px;
+}
+
+.button-row {
 	margin-top: 20px;
-	margin-right: 20px;
-	border: 3px solid #444444;
+	margin-bottom: 40px;
 }
 
-.demo img {
-	width: 100px;
-	height: 100px;
+.text-img-box {
+	margin-right: 30px;
 }
 
-.demolist {
-	position: relative;
-	float: left;
-	width: 378px;
-	height: 380px;
-	overflow: hidden;
-}
-
-.demoinfobox {
-	float: left;
-	width: 282px;
+.text-img {
 	height: 150px;
-	margin-top: 30px;
-	margin-left: 20px;
 }
 
-.demoinfo {
-	display: none;
-	height: 150px;
+/* DEMOS */
+
+.demo-box {
+	margin-bottom: 20px;
 }

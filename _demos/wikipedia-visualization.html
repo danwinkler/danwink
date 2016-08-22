@@ -1,0 +1,25 @@
+---
+layout: project
+title:  "Wikipedia Visualization"
+description: |
+    Shows a graphical representation of the links between Wikipedia articles.
+
+    Type in the title of a Wikipedia article and press enter.
+---
+
+<div class="textbox">
+    <div class="helpbox" style="display: none">
+        Type the name of a Wikipedia article!
+    </div>
+    <form>
+        <input type="text" name="pagename" id="pagename" />
+    </form>
+</div>
+<canvas id="canvas"></canvas>
+
+<script src="wikivis.js"></script>
+<script>
+$(function() {
+    beginVis();
+});
+</script>
