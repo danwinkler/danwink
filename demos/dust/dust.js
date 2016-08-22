@@ -16,8 +16,8 @@ function begin()
 {
     canvas = document.getElementById("canvas");
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = projWidth();
+    canvas.height = projHeight();
 
     g = canvas.getContext('2d');
 
@@ -38,6 +38,7 @@ function start()
     $("#canvas").focus();
 
     $("#canvas").mousemove( function(e) {
+        e.pageX -= $(canvas).offset().left;
         if( !lastX )
         {
             lastX = e.pageX;
@@ -73,10 +74,10 @@ function draw()
     {
         timeSince++;
     }
-    if( canvas.width != window.innerWidth || canvas.height != window.innerHeight )
+    if( canvas.width != projWidth() || canvas.height != projHeight() )
     {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = projWidth();
+        canvas.height = projHeight();
         g.fillStyle = "#000000";
         g.fillRect( 0, 0, canvas.width, canvas.height );
     }

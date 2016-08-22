@@ -158,7 +158,7 @@ function start() {
 	var mouseListener = function( e ) {
 		if( !mouseDown ) return;
 
-		var cx = event.clientX - $(".project-div").offset().left;
+		var cx = event.clientX - $(renderer.domElement).offset().left;
 
 		mouse.x = ( cx / projWidth() ) * 2 - 1;
 		mouse.y = -( event.clientY / projHeight() ) * 2 + 1;

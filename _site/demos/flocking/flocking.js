@@ -8,12 +8,12 @@ var towers = [];
 function begin()
 {
 	canvas = document.getElementById("canvas");
-	
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	
+
+	canvas.width = projWidth();
+	canvas.height = projHeight();
+
 	g = canvas.getContext('2d');
-	
+
 	start();
 	setInterval( draw, 1000/30 );
 }
@@ -22,12 +22,12 @@ function start()
 {
 	g.fillStyle = "#000000";
 	g.fillRect( 0, 0, canvas.width, canvas.height );
-	
+
 	for( var i = 0; i < 20; i++ )
 	{
 		boids.push( new Boid() );
 	}
-	
+
 	for( var i = 0; i < 20; i++ )
 	{
 		towers.push( new Tower( Math.random() * canvas.width, Math.random() * canvas.height ) );
@@ -36,10 +36,10 @@ function start()
 
 function draw()
 {
-	if( canvas.width != window.innerWidth || canvas.height != window.innerHeight )
+	if( canvas.width != projWidth() || canvas.height != projHeight() )
 	{
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
+		canvas.width = projWidth();
+		canvas.height = projHeight();
 		g.fillStyle = "#000000";
 		g.fillRect( 0, 0, canvas.width, canvas.height );
 	}
@@ -47,7 +47,7 @@ function draw()
 	g.globalAlpha = .4;
 	g.fillRect( 0, 0, canvas.width, canvas.height );
 	g.globalAlpha = 1;
-	
+
 	for( var i in boids )
 	{
 		boids[i].update();
@@ -108,7 +108,7 @@ var Boid = function()
 			avgaccel = avgaccel / avgcount;
 			avgx = avgx / avgcount;
 			avgy = avgy / avgcount;
-			
+
 			var avgxv = avgx - this.x;
 			var avgyv = avgy - this.y;
 			var distToAvg = Math.sqrt( avgxv*avgxv + avgyv*avgyv );
@@ -116,12 +116,12 @@ var Boid = function()
 			avgyv = avgyv / distToAvg;
 			var headingToAvg = Math.atan2( avgyv, avgxv );
 			this.heading += turnTowards( this.heading, headingToAvg ) * .1;
-			
+
 			var avgheading = Math.atan2( avghy, avghx );
 			this.heading += turnTowards( this.heading, avgheading ) * .1;
 			this.accel += (avgaccel - this.accel) * .3;
 		}
-		
+
 		for( var i in towers )
 		{
 			var tower = towers[i];
@@ -148,13 +148,13 @@ var Boid = function()
 
 		this.dx += this.accel * Math.cos( this.heading );
 		this.dy += this.accel * Math.sin( this.heading );
-		
+
 		this.dy *= .95;
 		this.dx *= .95;
-		
+
 		this.x += this.dx;
 		this.y += this.dy;
-		
+
 		if( this.x < 0 )
 			this.x = canvas.width;
 		if( this.y < 0 )
@@ -163,7 +163,7 @@ var Boid = function()
 			this.x = 0;
 		if( this.y > canvas.height )
 			this.y = 0;
-		
+
 	};
 	this.render = function() {
 		g.save();
@@ -178,11 +178,11 @@ var Boid = function()
 		g.stroke();
 		g.restore();
 	};
-	
+
 	this.dist = function( boid ) {
 		return Math.sqrt( this.dist2( boid ) );
 	}
-	
+
 	this.dist2 = function( boid ) {
 		var xx = this.x - boid.x;
 		var yy = this.y - boid.y;
@@ -197,7 +197,7 @@ var Tower = function( x, y )
 	this.rad = 30;
 	this.render = function() {
 		g.fillStyle = "#0000FF";
-		fillOval( this.x - this.rad, this.y - this.rad, this.rad*2, this.rad*2 ); 
+		fillOval( this.x - this.rad, this.y - this.rad, this.rad*2, this.rad*2 );
 	};
 }
 
@@ -273,7 +273,7 @@ function fillOval(aX, aY, aWidth, aHeight)
 	ellipse(aX, aY, aWidth, aHeight);
 	g.fill();
 }
-	
+
 function drawOval(aX, aY, aWidth, aHeight)
 {
 	g.beginPath();

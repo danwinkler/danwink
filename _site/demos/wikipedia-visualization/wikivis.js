@@ -47,8 +47,8 @@ function beginVis()
 {
 	canvas = document.getElementById("canvas");
 	c = canvas.getContext("2d");
-	canvas.width  = window.innerWidth;
-	canvas.height = window.innerHeight;
+	canvas.width  = projWidth();
+	canvas.height = projHeight();
 	var pagename = $_GET[ "pagename" ];
 	if( pagename )
 	{
@@ -62,10 +62,12 @@ function beginVis()
 	}
 
 	$("#canvas").click( function( e ) {
+        var px = e.pageX - $("#canvas").offset().left;
+        console.log( px + " " + e.pageX );
 		for( var i in pages )
 		{
 			var page = pages[i];
-			if( e.pageX > page.x - page.textSize/2 && e.pageX < page.x + page.textSize/2 && e.pageY > page.y - 10 && e.pageY < page.y + 10 )
+			if( px > page.x - page.textSize/2 && px < page.x + page.textSize/2 && e.pageY > page.y - 10 && e.pageY < page.y + 10 )
 			{
 				getWiki( page.name, 0 );
 			}
