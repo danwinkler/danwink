@@ -1,14 +1,18 @@
 body,html {
 	font-family: 'Roboto', Futura, Arial, sans-serif;
-	background-image: url( "/img/bg3.png" );
 }
 
 .fill {
-	background-color: rgb( 255, 255, 255 );
-	margin-top: 100px;
-	padding-top: 10px;
-	padding-bottom: 100px;
+	background-color: rgba( 255, 255, 255, .9 );
+
 	border-radius: 50px;
+	padding-top: 10px;
+	padding-bottom: 50px;
+}
+
+.background-image {
+	background-image: url( "/img/bg3.png" );
+	background-position: center;
 }
 
 .splash {
@@ -17,6 +21,14 @@ body,html {
 	background-image: url( "/img/bg2.png" );
 	background-position: center;
 	*/
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
 
 a:hover {
@@ -29,7 +41,15 @@ a:hover {
 }
 
 .header-row {
-	margin-top: 50px;
+
+}
+
+.header-row h1 {
+	/*
+	font-size: 100px;
+	color: #FFAA22;
+	font-weight: bold;
+	*/
 }
 
 .face-row {
