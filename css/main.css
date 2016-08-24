@@ -1,5 +1,22 @@
 body,html {
 	font-family: 'Roboto', Futura, Arial, sans-serif;
+	background-image: url( "/img/bg3.png" );
+}
+
+.fill {
+	background-color: rgb( 255, 255, 255 );
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 100px;
+	border-radius: 50px;
+}
+
+.splash {
+	/*
+	height: 450px;
+	background-image: url( "/img/bg2.png" );
+	background-position: center;
+	*/
 }
 
 a:hover {
@@ -42,4 +59,12 @@ a:hover {
 
 .demo-box {
 	margin-bottom: 20px;
+}
+
+.demo-img-wrapper {
+	width: 120px;
+	height: 120px;
+	padding: 10px;
+	background-color: #AAAABB;
+	margin: auto;
 }
