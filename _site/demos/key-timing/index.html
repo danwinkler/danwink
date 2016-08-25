@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/css/project.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="key-timing.css" rel="stylesheet" type="text/css">
+
+<script src="/js/jquery-3.1.0.min.js"></script>
+
+<script>
+    function projHeight() {
+        return $(".project-div").height();
+    }
+    function projWidth() {
+        return $(".project-div").width();
+    }
+</script>
+
+<body>
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
+
+            <h1>Key Timing</h1>
+            <p>Shows the time taken between two keypresses.</p>
+
+<p>Type into the textbox on the left, and see the average time to go from a source letter (Y axis) to destination letter (X axis).</p>
+
+<p>Time is displayed in seconds.</p>
+
+        </div>
+        <div class="col-lg-10 project-div">
+            <div class="row">
+<div class="col-lg-6 col-md-4">
+    <div>
+        Type into the textbox!
+        <br />    <br />
+        Y axis is source character. X axis is destination character. Cell shows average travel time in seconds.
+    </div>
+    <textarea id="text"></textarea>
+</div>
+<div class="col-lg-6 col-md-8">
+    <canvas id="canvas"></canvas>
+</div>
+</div>
+
+<script src="key-timing.js"></script>
+<script>
+$(function() {
+    begin();
+});
+</script>
+
+        </div>
+    </div>
+    <script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42955009-1', 'danwink.com');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

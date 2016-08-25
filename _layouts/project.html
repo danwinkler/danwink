@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
-  {% include project_head.html %}
-  <body>
-    {{ content }}
+{% include project_head.html %}
+<body>
+    <div class="container-fluid project-container">
+        <div class="col-lg-2">
+            <div class="back-box">
+                <strong><a href="/demos/"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back</a></strong>
+            </div>
 
+            <h1>{{page.title}}</h1>
+            {{page.description | markdownify}}
+        </div>
+        <div class="col-lg-10 project-div">
+            {{ content }}
+        </div>
+    </div>
     {% include project_footer.html %}
-  </body>
+</body>
 </html>

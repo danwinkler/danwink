@@ -1,64 +1,9 @@
 ---
-layout: default
+layout: landing
 ---
-
-<div class="container">
-    <div class="innercont">
-        <div class="leftcol">
-            <div class="buttons">
-                <div class="logo">
-                    <div class="daniel">
-                        Daniel
-                    </div>
-                    <div class="winkler">
-                        Winkler
-                    </div>
-                </div>
-                <div class="demos button">
-                    Demos
-                </div><div class="buttonsep"></div>
-                <div class="about button">
-                    About
-                </div><div class="buttonsep"></div>
-                <a href="/blog">
-                    <div class="blog button">
-                        Blog
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="separator">
-            <div class="topsep"></div>
-            <div class="bottomsep"></div>
-        </div>
-        <div class="rightcol">
-            <div class="contentframe">
-                <div class="demos content">
-                    <h2>Demos</h2>
-                    <div class="demolist">
-                        {% for post in site.posts %}
-                            <a href="{{ post.url }}">
-                                <div class="demo {{ post.title | slugify }}">
-                                    <img src="/projects/{{ post.title | slugify }}/thumb.png"></img>
-                                </div>
-                            </a>
-                        {% endfor %}
-                        <div style="clear: both"></div>
-                    </div>
-                    <div class="demoinfobox">
-                    {% for post in site.posts %}
-                        <div class="demoinfo {{ post.title | slugify }}">
-                            <h2>{{ post.title }}</h2>
-                            {% if post.description %}{{ post.description | markdownify }}{% endif %}
-                        </div>
-                    {% endfor %}
-                    </div>
-                </div>
-                <div class="about content">
-                    {% capture about %}{% include about.md %}{% endcapture %}
-                    {{ about | markdownify }}
-                </div>
-            </div>
-        </div>
+<div class="row text-center">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-centered home-text">
+        {% capture landing %}{% include landing.md %}{% endcapture %}
+        {{ landing | markdownify }}
     </div>
 </div>

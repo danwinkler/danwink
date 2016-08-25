@@ -1,0 +1,22 @@
+body, html {
+	height:100%;
+	background-color: black;
+	color: #E0DDDD;
+}
+
+#canvas {
+    position:absolute;
+    width:800;
+    height:600;
+
+
+	left:0; right:0;
+	top:0; bottom:0;
+	margin:auto;
+
+	max-width:100%;
+	max-height:100%;
+	overflow:auto;
+
+	border: 3px solid #444444;
+}
