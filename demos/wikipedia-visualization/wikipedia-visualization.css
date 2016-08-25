@@ -1,6 +1,7 @@
 body, html {
     height:100%;
     background-color: #000000;
+    color: #E0DDDD;
 }
 
 #canvas {
@@ -16,6 +17,7 @@ body, html {
     padding: 10px;
     outline: 2px solid #333333;
     z-index: 10;
+    color: black;
 }
 
 .helpbox {
@@ -26,4 +28,8 @@ body, html {
 
 #pagename {
     width: 100%;
+}
+
+.clear-button {
+    
 }

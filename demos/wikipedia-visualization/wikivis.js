@@ -75,6 +75,40 @@ function beginVis()
 	});
 }
 
+function countLinks( page ) {
+    var num = 0;
+    for( var i in page.links ) {
+        var p = pages[page.links[i]];
+        if( p ) {
+            num++;
+        }
+    }
+
+    for( var i in pages )
+    {
+        var p = pages[i];
+        for( var j in p.links ) {
+            var op = pages[p.links[j]];
+            if( op == page && page.links.indexOf( i ) == -1 ) {
+                num++;
+            }
+        }
+    }
+    return num;
+}
+
+$(".clear-button").click(function(){
+    var newpages = {};
+    for( var i in pages )
+    {
+        var page = pages[i];
+        if( countLinks( page ) > 1 ) {
+            newpages[i] = page;
+        }
+    }
+    pages = newpages;
+});
+
 function getWiki( page, depth )
 {
 	if( depth == maxDepth ) return;
