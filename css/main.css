@@ -65,6 +65,10 @@ a:hover {
 	line-height: 1.8;
 }
 
+.about-text p {
+	margin-bottom: 20px;
+}
+
 /* DEMOS */
 
 .demo-box {
