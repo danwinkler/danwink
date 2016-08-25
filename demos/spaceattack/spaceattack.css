@@ -1,6 +1,7 @@
 body, html {
 	height:100%;
 	background-color: black;
+	color: #E0DDDD;
 }
 
 #canvas {
