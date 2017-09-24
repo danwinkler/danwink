@@ -80,6 +80,13 @@ function draw() {
 
     g.strokeStyle = "#000000";
 
+    if( Math.random() < .01 ) {
+        var ware = wares[Math.floor(Math.random()*wares.length)];
+        var peer = peers[Math.floor(Math.random()*peers.length)];
+
+        new ware( peer );
+    }
+
     for( var i in peers ) {
         peers[i].update();
         peers[i].render();
@@ -108,6 +115,10 @@ function Link( a, b, type ) {
         a.links.splice( a.links.indexOf( this ), 1 );
         b.links.splice( b.links.indexOf( this ), 1 );
     };
+
+    this.other = function( peer ) {
+        return peer == a ? b : a;
+    };
 }
 
 function Peer( x, y ) {
@@ -119,12 +130,16 @@ function Peer( x, y ) {
     this.dy = 0;
 
     this.links = [];
+    this.wares = [];
 
     this.update = function() {
         this.repelNeighbors();
 
-        if( Math.random() < .1 )
-        {
+        for( var i in this.wares ) {
+            this.wares[i].run();
+        }
+
+        if( Math.random() < .1 ) {
             for( var i in peers ) {
                 var peer = peers[i];
                 if( (peer == this) || this.connectedTo( peer ) ) continue;
@@ -207,9 +222,11 @@ function Peer( x, y ) {
 
     this.render = function() {
         g.strokeStyle = this.hasTop() ? "#000000" : "#0000FF";
-        //This flooring business keeps the lines aligned to pixels
         g.strokeRect( this.x - 10, this.y - 10, 20, 20 );
-        g.strokeText( this.level(), this.x, this.y );
+        g.strokeText( this.level(), this.x-10, this.y );
+        for( var i in this.wares ) {
+            g.strokeText( this.wares[i].name(), this.x-10, this.y + (10*(Math.floor(i)+1)) );
+        }
         for( var i in this.links ) {
             var link = this.links[i];
             if( link.a == this ) {
@@ -284,7 +301,6 @@ function Peer( x, y ) {
         var self = this;
         for( var i in this.links ) {
             var link = this.links[i];
-            console.log( link.type );
 
             if( link.type == 'peer' ) {
                 link.break();
@@ -310,8 +326,63 @@ function Peer( x, y ) {
             if( this.links[i].type == 'peer' ) return true;
         }
         return false;
-    }
+    };
+
+    this.hasWare = function( ware ) {
+        for( var i in this.wares ) {
+            if( this.wares[i].type() == ware.type() ) {
+                return true;
+            }
+        }
+        return false;
+    };
 }
+
+function Ware( peer ) {
+    this.peer = peer;
+    this.peer.wares.push( this );
+
+    this.name = function() {
+        return "Ware";
+    }
+
+    this.run = function() {};
+}
+
+var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+function ExpireWare( peer, id ) {
+    Ware.call( this, peer );
+
+    this.life = 200;
+    this.id = id || letters[Math.floor(Math.random()*letters.length)] + letters[Math.floor(Math.random()*letters.length)];
+
+    this.name = function() {
+        return this.id + "_" + this.life;
+    };
+
+    this.type = function() {
+        return this.id;
+    };
+
+    this.run = function() {
+        if( Math.random() < .1 ) {
+            var other = this.peer.links[Math.floor(Math.random()*this.peer.links.length)].other();
+            if( !other.hasWare( this ) ) {
+                new ExpireWare( other, this.id );
+            }
+        }
+
+        this.life--;
+        if( this.life <= 0 ) {
+            this.peer.wares.splice( this.peer.wares.indexOf( this ), 1 );
+        }
+    };
+}
+
+var wares = [
+    ExpireWare
+];
 
 function clamp( num, min, max ) {
     return num <= min ? min : num >= max ? max : num;

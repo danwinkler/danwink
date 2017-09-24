@@ -6,9 +6,29 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Sep 2017 22:46:02 -0700</pubDate>
-    <lastBuildDate>Tue, 19 Sep 2017 22:46:02 -0700</lastBuildDate>
+    <pubDate>Sat, 23 Sep 2017 18:39:27 -0700</pubDate>
+    <lastBuildDate>Sat, 23 Sep 2017 18:39:27 -0700</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
+    
+      <item>
+        <title>Peers</title>
+        <description>&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;script src=&quot;peers.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+    begin();
+});
+&lt;/script&gt;
+</description>
+        <pubDate>Mon, 18 Sep 2017 18:21:50 -0700</pubDate>
+        <link>http://localhost:4000/projects/peers/</link>
+        <guid isPermaLink="true">http://localhost:4000/projects/peers/</guid>
+        
+        
+        <category>projects</category>
+        
+      </item>
     
       <item>
         <title>RTS Full Zoom</title>
